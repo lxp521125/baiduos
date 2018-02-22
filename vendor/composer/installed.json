@@ -1,0 +1,97 @@
+[
+    {
+        "name": "dueros/bot-sdk",
+        "version": "v2.1.8",
+        "version_normalized": "2.1.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dueros/bot-sdk.git",
+            "reference": "72dba7cda6452061ecea52150056a8e49f73784d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/dueros/bot-sdk/72dba7cda6452061ecea52150056a8e49f73784d.zip",
+            "reference": "72dba7cda6452061ecea52150056a8e49f73784d",
+            "shasum": ""
+        },
+        "require": {
+            "monitor/bot-monitor": "^1.4",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.3"
+        },
+        "time": "2018-01-15T04:24:11+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Baidu\\Duer\\Botsdk\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "wangpeng",
+                "email": "wangpeng20@baidu.com",
+                "role": "Developer"
+            },
+            {
+                "name": "yuanpeng",
+                "email": "yuanpeng01@baidu.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "度秘bot开发的PHP SDK",
+        "keywords": [
+            "bot",
+            "duer"
+        ]
+    },
+    {
+        "name": "monitor/bot-monitor",
+        "version": "v1.4.0",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://gitlab.com/tianyi17/BotMonitor.git",
+            "reference": "43bb09c2b7316f785bb080ee64f56fae6427cf0e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://gitlab.com/api/v4/projects/tianyi17%2FBotMonitor/repository/archive.zip?sha=43bb09c2b7316f785bb080ee64f56fae6427cf0e",
+            "reference": "43bb09c2b7316f785bb080ee64f56fae6427cf0e",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2017-11-15T21:59:07+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Baidu\\Apm\\BotMonitorsdk\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "liudesheng",
+                "email": "liudesheng01@baidu.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "bot监控的PHP SDK",
+        "keywords": [
+            "bot",
+            "monitor"
+        ]
+    }
+]
