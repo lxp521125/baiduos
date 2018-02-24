@@ -2,21 +2,24 @@
 
 require 'vendor/autoload.php';
 
-class index extends Baidu\Duer\Botsdk\Bot
-{
-    public function __construct($postData = [], $privateKey = '')
-    {
-        parent::__construct($postData, $privateKey);
-            /* DuerOS和技能之间通讯需要进行签名验证，PHP需要开启open ssl扩展*/
-            $this->certificate->enableVerifyRequestSign();
-            $this->addIntentHandler('caishuzi', 'caishuzi');
-            $this->addLaunchHandler(function(){
-                return [
-                    'outputSpeech' => '<speak>'.$this->session_id.'欢迎使用，已经为你生成0-100一个随机数</speak>' 
-                ];
-            });
-    }
+// $jn = $_GET['jn'];
+$jn = 'caishuzi';
 
-    
+require_once 'app/'.$jn.'/Bot.php';
+
+$bot = new Bot();
+if($_SERVER['REQUEST_METHOD'] == 'HEAD'){
+    header('HTTP/1.1 204 No Content');
 }
-new index();
+header("Content-Type: application/json");
+
+//记录整体执行时间
+$bot->log->markStart('all_t');
+$ret = $bot->run();
+$bot->log->markEnd('all_t');
+
+//打印日志
+//or 在register_shutdown_function增加一个执行函数
+$bot->log->notice('bot');
+
+print $ret;
