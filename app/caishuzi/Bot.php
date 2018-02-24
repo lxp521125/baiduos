@@ -26,26 +26,26 @@ class Bot extends Baidu\Duer\Botsdk\Bot{
         //你可以这样来添加一个插件
         //$this->addIntercept(new Baidu\Duer\Botsdk\Plugins\DuerSessionIntercept());
         $this->addLaunchHandler(function(){
-            $this->setSessionAttribute('num', rand(0,100));
+            $this->setSessionAttribute('session_num', rand(0,100));
             return [
                 'outputSpeech' => '<speak>欢迎使用猜数字游戏，已经为你生成了0到100中随机一个数字，开始猜数字吧</speak>' 
             ];
         });
-        $this->addHandler('fanwei', function(){
-            if(!$this->getSlot('num')) {
-                $this->nlu->ask('num');
+        $this->addIntentHandler('fanwei', function(){
+            if(!$this->getSlot('sys.number')) {
+                $this->nlu->ask('sys.number');
                 return [
                     'card' => new TextCard('你得给我个数字。大胆猜一个吧。')
                 ];
             }
             
-            if($this->getSessionAttribute('num') == $this->getSlot('num')) {
+            if($this->getSessionAttribute('session_num') == $this->getSlot('sys.number')) {
                 $card = new TextCard('爆炸了');
                 return [
                     'card' => $card 
                 ]; 
             }else{
-                $card = new TextCard('数字是：'.$this->getSessionAttribute('num'));
+                $card = new TextCard('数字是：'.$this->getSessionAttribute('session_num'));
                 $this->waitAnswer();
                 return [
                     'card' => $card 
