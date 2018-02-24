@@ -27,6 +27,7 @@ class Bot extends Baidu\Duer\Botsdk\Bot{
         //$this->addIntercept(new Baidu\Duer\Botsdk\Plugins\DuerSessionIntercept());
         $this->addLaunchHandler(function(){
             $this->setSessionAttribute('session_num', rand(0,100));
+            $this->waitAnswer();
             return [
                 'outputSpeech' => '<speak>欢迎使用猜数字游戏，已经为你生成了0到100中随机一个数字，开始猜数字吧</speak>' 
             ];
@@ -34,6 +35,7 @@ class Bot extends Baidu\Duer\Botsdk\Bot{
         $this->addIntentHandler('fanwei', function(){
             if(!$this->getSlot('sys.number')) {
                 $this->nlu->ask('sys.number');
+                $this->waitAnswer();
                 return [
                     'card' => new TextCard('你得给我个数字。大胆猜一个吧。')
                 ];
