@@ -80,8 +80,8 @@ class Bot extends Baidu\Duer\Botsdk\Bot
         $minNum = $this->getSessionAttribute('session_min_num');
         $caiNum = $this->getSessionAttribute('session_cai_num');
         
-        if ($userCaiNum > $maxNum || $userCaiNum < $minNum) {
-            return '猜的数字超出范围，你只能猜'.$minNum.'到'.$maxNum.'，游戏继续';
+        if ($userCaiNum >= $maxNum || $userCaiNum <= $minNum) {
+            return '猜的数字超出范围，你只能猜'.$minNum.'到'.$maxNum.'，不包含本身，游戏继续';
         }
         if ($caiNum == $userCaiNum) {
             return '祝贺你，就是'.$caiNum;
