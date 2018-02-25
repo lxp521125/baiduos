@@ -32,7 +32,7 @@ class Bot extends Baidu\Duer\Botsdk\Bot
             $this->iniData();
             $this->waitAnswer();
             return [
-                'outputSpeech' => '<speak>欢迎使用猜数字游戏，已经为你生成了0到100中随机一个数字，开始猜数字吧</speak>'
+                'outputSpeech' => '<speak>欢迎使用炸弹数字游戏，已经为你生成了0到100中随机一个数字，开始猜数字吧，我会不断的缩小范围看看谁会猜中炸弹数字呢？</speak>'
             ];
         });
         $this->addIntentHandler('start', function () {
