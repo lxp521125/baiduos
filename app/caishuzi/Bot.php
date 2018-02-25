@@ -59,7 +59,7 @@ class Bot extends Baidu\Duer\Botsdk\Bot
             $card = $this->handleDataMsg($userCaiNum);
             $this->waitAnswer();
             return [
-                'card' => $card
+                'card' => new TextCard($card)
             ];
         });
     }
