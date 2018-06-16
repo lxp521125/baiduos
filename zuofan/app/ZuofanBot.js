@@ -74,8 +74,8 @@ class ZuofanBot extends Bot {
             let  Directive =  new Bot.Directive.RenderTemplate.Template(page[pageIndex])
             return {
                 "shouldEndSession" : pageIndex != 7 ? false : true,
-                "directives": [Directive]
-                // "outputSpeech": page[pageIndex]['textContent']['text']
+                "directives": [Directive],
+                "outputSpeech": page[pageIndex]['textContent']['text']
             };
             // let monthlySalary = this.getSlot('number');
             // if (!monthlySalary) {
