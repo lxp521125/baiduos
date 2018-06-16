@@ -75,12 +75,12 @@ class ZuofanBot extends Bot {
                 {type:'BodyTemplate1', token:'8',backgroundImage:{},  title:'西红柿炒鸡蛋', textContent:{'position':'CENTER',text:'7. 已经学习结束，是不是已经成功了'}}                
             );
             
-            let card = new Bot.Card.TextCard(page[pageIndex]['textContent']['text']);
+            // let card = new Bot.Card.TextCard(page[pageIndex]['textContent']['text']);
             // let card = new Bot.Card.StandardCard(page[pageIndex]['textContent']['text']);
             return {
-                "directives": [directive],                
-                card: card,
-                outputSpeech: page[pageIndex]['textContent']['text']
+                directives: [directive],                
+                // card: card,
+                // outputSpeech: page[pageIndex]['textContent']['text']
             };
 
             return {
