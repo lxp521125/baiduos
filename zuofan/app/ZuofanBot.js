@@ -48,10 +48,12 @@ class ZuofanBot extends Bot {
         });
         this.addIntentHandler('over', () => {
             this.endSession();
-            let card = new Bot.Card.TextCard('看来你学会了，划重点：做饭要有爱，做啥都是美味！');
+            let directive =  new Bot.Directive.RenderTemplate.Template({type:'BodyTemplate1', token:'1',backgroundImage:{"url": 'http://dbp-resource.gz.bcebos.com/9838ae4c-39a7-cddf-fe90-0bcf81f3cfaa/ea885ab6873e11e6a9a10242ac110002_600w_398h.jpg?authorization=bce-auth-v1%2Fa4d81bbd930c41e6857b989362415714%2F2018-06-16T05%3A59%3A10Z%2F-1%2F%2F767d1dc792f39d996774126aa1fb74b4088e44b8937f0cec5c853393d552a221',"widthPixels": 0, "heightPixels": 0}, title:'西红柿炒鸡蛋', textContent:{'position':'CENTER',text:{"type": "PlainText","text": "看来你学会了，划重点：做饭要有爱，做啥都是美味！"}}});
+            // let card = new Bot.Card.TextCard('西红柿炒鸡蛋');
+                // 可以返回异步 Promise
             return Promise.resolve({
-                card: card,
-                outputSpeech: '看来你学会了，划重点：做饭要有爱，做啥都是美味！'
+                directives: [directive],                
+                outputSpeech: "看来你学会了，划重点：做饭要有爱，做啥都是美味！"
             });
         });
         this.addIntentHandler('leftright', () => {
