@@ -8,11 +8,13 @@ class ZuofanBot extends Bot {
 
         this.addLaunchHandler(() => {
             this.waitAnswer();
-            let card = new Bot.Card.TextCard('你想做哪种美味呢，目前我会西红柿炒鸡蛋，来试试吧!');
-            return {
-                card: card,
-                outputSpeech: '你想做哪种美味呢，目前我会西红柿炒鸡蛋，来试试吧!'
-            };
+            let directive =  new Bot.Directive.RenderTemplate.Template({type:'ListTemplate1',token:'zuofan_list',backgroundImage:{"url":'http://dbp-resource.gz.bcebos.com/9838ae4c-39a7-cddf-fe90-0bcf81f3cfaa/ea885ab6873e11e6a9a10242ac110002_600w_398h.jpg?authorization=bce-auth-v1%2Fa4d81bbd930c41e6857b989362415714%2F2018-06-16T05%3A59%3A10Z%2F-1%2F%2F767d1dc792f39d996774126aa1fb74b4088e44b8937f0cec5c853393d552a221'},title:'选择菜谱',listItems:[{"token":"zuofan_list_1","image":{"url":"http://dbp-resource.gz.bcebos.com/9838ae4c-39a7-cddf-fe90-0bcf81f3cfaa/ea885ab6873e11e6a9a10242ac110002_600w_398h.jpg?authorization=bce-auth-v1%2Fa4d81bbd930c41e6857b989362415714%2F2018-06-16T05%3A59%3A10Z%2F-1%2F%2F767d1dc792f39d996774126aa1fb74b4088e44b8937f0cec5c853393d552a221"},"textContent":{"primaryText":"西红柿炒鸡蛋","secondaryText":"简单的不平凡","tertiaryText":""}}]});
+            // let card = new Bot.Card.TextCard('西红柿炒鸡蛋');
+                // 可以返回异步 Promise
+            return Promise.resolve({
+                directives: [directive],                
+                outputSpeech: "你想做哪种美味呢，目前我会西红柿炒鸡蛋，来试试吧!"
+            });
         });
         this.addSessionEndedHandler(() => {
             this.endSession();
@@ -21,6 +23,16 @@ class ZuofanBot extends Bot {
                 card: card,
                 outputSpeech: '看来你学会了，划重点：做饭要有爱，做啥都是美味！'
             };
+        });
+        this.addIntentHandler('list', () => {
+            this.waitAnswer();
+            let directive =  new Bot.Directive.RenderTemplate.Template({type:'ListTemplate1',token:'zuofan_list',backgroundImage:{"url":'http://dbp-resource.gz.bcebos.com/9838ae4c-39a7-cddf-fe90-0bcf81f3cfaa/ea885ab6873e11e6a9a10242ac110002_600w_398h.jpg?authorization=bce-auth-v1%2Fa4d81bbd930c41e6857b989362415714%2F2018-06-16T05%3A59%3A10Z%2F-1%2F%2F767d1dc792f39d996774126aa1fb74b4088e44b8937f0cec5c853393d552a221'},title:'选择菜谱',listItems:[{"token":"zuofan_list_1","image":{"url":"http://dbp-resource.gz.bcebos.com/9838ae4c-39a7-cddf-fe90-0bcf81f3cfaa/ea885ab6873e11e6a9a10242ac110002_600w_398h.jpg?authorization=bce-auth-v1%2Fa4d81bbd930c41e6857b989362415714%2F2018-06-16T05%3A59%3A10Z%2F-1%2F%2F767d1dc792f39d996774126aa1fb74b4088e44b8937f0cec5c853393d552a221"},"textContent":{"primaryText":"西红柿炒鸡蛋","secondaryText":"简单的不平凡","tertiaryText":""}}]});
+            // let card = new Bot.Card.TextCard('西红柿炒鸡蛋');
+                // 可以返回异步 Promise
+            return Promise.resolve({
+                directives: [directive],                
+                outputSpeech: "你想做哪种美味呢，目前我会西红柿炒鸡蛋，来试试吧!"
+            });
         });
         this.addIntentHandler('choose', () => {
             this.waitAnswer();             
