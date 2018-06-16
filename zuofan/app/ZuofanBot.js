@@ -63,7 +63,7 @@ class ZuofanBot extends Bot {
             }            
             let pageIndex = this.getSessionAttribute("pageIndex", 0);
             pageIndex = parseInt(pageIndex)
-            if (!userDirection && (userDirection.indexOf("左") > -1 || userDirection.indexOf("上") > -1)){
+            if (userDirection && (userDirection.indexOf("左") > -1 || userDirection.indexOf("上") > -1)){
                 pageIndex -= locNum;
             }else{
                 pageIndex += locNum;
