@@ -69,6 +69,8 @@ class ZuofanBot extends Bot {
             pageIndex = parseInt(pageIndex)
             if (userDirection && (userDirection.indexOf("左") > -1 || userDirection.indexOf("上") > -1)){
                 pageIndex -= locNum;
+            }else if(userDirection && (userDirection.indexOf("第") > -1)){
+                pageIndex = locNum;
             }else{
                 pageIndex += locNum;
             }            
