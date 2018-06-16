@@ -1,0 +1,13 @@
+{
+  "name": "bae-nodejs",
+  "version": "1.0.0",
+  "author": "bae",
+  "description": "The first bae nodejs app!",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bot-sdk": "^1.1.1",
+    "express": "^4.16.3"
+  }
+}
