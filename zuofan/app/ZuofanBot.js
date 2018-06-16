@@ -13,6 +13,7 @@ class ZuofanBot extends Bot {
                 // 可以返回异步 Promise
             return Promise.resolve({
                 directives: [directive],                
+                card: new Bot.Card.TextCard("看来你学会了，划重点：做饭要有爱，做啥都是美味！"),                         
                 outputSpeech: "你想做哪种美味呢，目前我会西红柿炒鸡蛋，来试试吧!"
             });
         });
@@ -22,7 +23,8 @@ class ZuofanBot extends Bot {
             // let card = new Bot.Card.TextCard('西红柿炒鸡蛋');
                 // 可以返回异步 Promise
             return Promise.resolve({
-                directives: [directive],                
+                directives: [directive], 
+                card: new Bot.Card.TextCard("看来你学会了，划重点：做饭要有爱，做啥都是美味！"),                
                 outputSpeech: "看来你学会了，划重点：做饭要有爱，做啥都是美味！"
             });
         });
@@ -33,6 +35,7 @@ class ZuofanBot extends Bot {
                 // 可以返回异步 Promise
             return Promise.resolve({
                 directives: [directive],                
+                card: new Bot.Card.TextCard("你想做哪种美味呢，目前我会西红柿炒鸡蛋，来试试吧!"),                
                 outputSpeech: "你想做哪种美味呢，目前我会西红柿炒鸡蛋，来试试吧!"
             });
         });
@@ -42,7 +45,8 @@ class ZuofanBot extends Bot {
             // let card = new Bot.Card.TextCard('西红柿炒鸡蛋');
                 // 可以返回异步 Promise
             return Promise.resolve({
-                directives: [directive],                
+                directives: [directive],  
+                card: new Bot.Card.TextCard("原料准备：番茄，鸡蛋，葱花，盐"),                                     
                 outputSpeech: "原料准备：番茄，鸡蛋，葱花，盐"
             });
         });
@@ -52,7 +56,8 @@ class ZuofanBot extends Bot {
             // let card = new Bot.Card.TextCard('西红柿炒鸡蛋');
                 // 可以返回异步 Promise
             return Promise.resolve({
-                directives: [directive],                
+                directives: [directive],
+                card: new Bot.Card.TextCard("看来你学会了，划重点：做饭要有爱，做啥都是美味！"),                
                 outputSpeech: "看来你学会了，划重点：做饭要有爱，做啥都是美味！"
             });
         });
