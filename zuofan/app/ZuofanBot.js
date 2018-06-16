@@ -35,10 +35,10 @@ class ZuofanBot extends Bot {
         this.addIntentHandler('over', () => {
             this.endSession();
             let card = new Bot.Card.TextCard('看来你学会了，划重点：做饭要有爱，做啥都是美味！');
-            return {
+            return Promise.resolve({
                 card: card,
                 outputSpeech: '看来你学会了，划重点：做饭要有爱，做啥都是美味！'
-            };
+            });
         });
         this.addIntentHandler('leftright', () => {
             this.waitAnswer();            
@@ -76,18 +76,19 @@ class ZuofanBot extends Bot {
             let directive =  new Bot.Directive.RenderTemplate.Template(page[pageIndex]);
             // let card = new Bot.Card.TextCard(page[pageIndex]['textContent']['text']);
             // let card = new Bot.Card.StandardCard(page[pageIndex]['textContent']['text']);
-            return {
+            return Promise.resolve({
+                "shouldEndSession" : pageIndex != 7 ? false : true,                
                 directives: [directive],                
                 // card: card,
-                outputSpeech: page[pageIndex]['textContent']['text']
-            };
+                outputSpeech: page[pageIndex]['textContent']['text']['text']
+            });
 
-            return {
-                "shouldEndSession" : pageIndex != 7 ? false : true,
-                "directives": [directive],
-                "card": card,
-                "outputSpeech": page[pageIndex]['textContent']['text']
-            };
+            // return Promise.resolve({
+            //     "shouldEndSession" : pageIndex != 7 ? false : true,
+            //     "directives": [directive],
+            //     // "card": card,
+            //     "outputSpeech": page[pageIndex]['textContent']['text']['text']
+            // });
             // let monthlySalary = this.getSlot('number');
             // if (!monthlySalary) {
             //     this.nlu.ask('number');
