@@ -97,12 +97,12 @@ class ZuofanBot extends Bot {
                 {type:'BodyTemplate1', token:'8',backgroundImage:{"url": 'http://dbp-resource.gz.bcebos.com/9838ae4c-39a7-cddf-fe90-0bcf81f3cfaa/c6ad56e6a52b11e5a23867cf2b13e9bf.jpg?authorization=bce-auth-v1%2Fa4d81bbd930c41e6857b989362415714%2F2018-06-16T05%3A59%3A04Z%2F-1%2F%2F006050712da6c5731650b21950583b69a00aaaee5c12f6fb196df1b2ed65dcb1',"widthPixels": 0, "heightPixels": 0},  title:'西红柿炒鸡蛋', textContent:{'position':'CENTER',text:{"type": "PlainText","text":'7. 已经学习结束，是不是已经成功了'}}},
             ];
             let directive =  new Bot.Directive.RenderTemplate.Template(page[pageIndex]);
-            // let card = new Bot.Card.TextCard(page[pageIndex]['textContent']['text']);
+            let card = new Bot.Card.TextCard(page[pageIndex]['textContent']['text']);
             // let card = new Bot.Card.StandardCard(page[pageIndex]['textContent']['text']);
             return Promise.resolve({
                 "shouldEndSession" : pageIndex != 7 ? false : true,                
                 directives: [directive],                
-                // card: card,
+                card: card,
                 outputSpeech: page[pageIndex]['textContent']['text']['text']
             });
 
