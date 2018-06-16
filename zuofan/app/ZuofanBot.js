@@ -74,8 +74,9 @@ class ZuofanBot extends Bot {
             let directive =  new Bot.Directive.RenderTemplate.Template(page[pageIndex]);
             let card = new Bot.Card.StandardCard(page[pageIndex]['textContent']['text']);
             return {
+                "directives": [directive],                
                 card: card,
-                outputSpeech: '看来你学会了，划重点：做饭要有爱，做啥都是美味！'
+                outputSpeech: page[pageIndex]['textContent']['text']
             };
 
             return {
