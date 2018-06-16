@@ -29,7 +29,7 @@ class ZuofanBot extends Bot {
                 card: card,
                 outputSpeech: '西红柿炒鸡蛋'
             });
-        },
+        });
         this.addIntentHandler('over', () => {
             this.endSession();
             let card = new Bot.Card.TextCard('看来你学会了，划重点：做饭要有爱，做啥都是美味！');
@@ -37,7 +37,7 @@ class ZuofanBot extends Bot {
                 card: card,
                 outputSpeech: '看来你学会了，划重点：做饭要有爱，做啥都是美味！'
             };
-        },
+        });
         this.addIntentHandler('leftright', () => {
             this.waitAnswer();            
             let locNum = this.getSlot('sys.number');
