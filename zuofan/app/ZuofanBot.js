@@ -22,8 +22,24 @@ class ZuofanBot extends Bot {
                 outputSpeech: '看来你学会了，划重点：做饭要有爱，做啥都是美味！'
             };
         });
-
+        this.addIntentHandler('choose', () => {
+            let card = new Bot.Card.TextCard('西红柿炒鸡蛋');
+                // 可以返回异步 Promise
+            return Promise.resolve({
+                card: card,
+                outputSpeech: '西红柿炒鸡蛋'
+            });
+        },
+        this.addIntentHandler('over', () => {
+            this.endSession();
+            let card = new Bot.Card.TextCard('看来你学会了，划重点：做饭要有爱，做啥都是美味！');
+            return {
+                card: card,
+                outputSpeech: '看来你学会了，划重点：做饭要有爱，做啥都是美味！'
+            };
+        },
         this.addIntentHandler('leftright', () => {
+            this.waitAnswer();            
             let locNum = this.getSlot('sys.number');
             let userDirection = this.getSlot('user_direction');
             if (!locNum) {
@@ -31,7 +47,7 @@ class ZuofanBot extends Bot {
             }else{
                 locNum = parseInt(locNum)
             }            
-            pageIndex = this.getSessionAttribute("pageIndex", 0);
+            let pageIndex = this.getSessionAttribute("pageIndex", 0);
             pageIndex = parseInt(pageIndex)
             if (userDirection.indexOf("左") > -1 || userDirection.indexOf("上") > -1) {
                 pageIndex -= locNum;
